@@ -15,7 +15,7 @@ pub fn main() !void {
 
     try stdout.print("بسم الله الرحمن الرحيم\n", .{});
     const bismi_allah_str = "in the name of Allah";
-    const bismi_allah =  task_tree_lib.Task{.id = 0, .name=bismi_allah_str.* ++ 0 ** (task_tree_lib.Task.name.len - bismi_allah_str.len), .progress=12};
+    const bismi_allah =  task_tree_lib.Task{.id = 0, .name=bismi_allah_str.* ++ [_]u8{0} ** (34 - bismi_allah_str.len), .progress=12};
     try stdout.print("alhamdo li Allah task name: '{s}'\n", .{bismi_allah.name});
 
     try bw.flush(); // don't forget to flush!
