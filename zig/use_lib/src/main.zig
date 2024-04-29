@@ -14,8 +14,8 @@ pub fn main() !void {
     const stdout = bw.writer();
 
     try stdout.print("بسم الله الرحمن الرحيم\n", .{});
-    const bismi_allah_name: [34]u8 = [34]u8{' ', 'b', 'i', 's', 'm', 'i', 'A', 'l', 'l', 'a', 'h', ' ', 'b', 'i', 's', 'm', 'i', 'A', 'l', 'l', 'a', 'h', ' ', 'b', 'i', 's', 'm', 'i', 'A', 'l', 'l', 'a', 'h', ' '};
-    const bismi_allah =  task_tree_lib.Task{.id = 0, .name=bismi_allah_name, .progress=12};
+    const bismi_allah_str = "in the name of Allah";
+    const bismi_allah =  task_tree_lib.Task{.id = 0, .name=bismi_allah_str.* ++ 0 ** (task_tree_lib.Task.name.len - bismi_allah_str.len), .progress=12};
     try stdout.print("alhamdo li Allah task name: '{s}'\n", .{bismi_allah.name});
 
     try bw.flush(); // don't forget to flush!
