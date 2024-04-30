@@ -8,7 +8,11 @@ pub fn main() !void {
     const stdout = bw.writer();
     try stdout.print("بسم الله الرحمن الرحيم\n", .{});
 
-
+    var bismi_allah_arr: ?[]u8 = null;
+    try stdout.print("alhamdo li Allah bismi_allah_arr.len == {d}\n", .{if(null != bismi_allah_arr) bismi_allah_arr.?.len else 0});
+    var bismi_allah = [2]u8{12, 13};
+    bismi_allah_arr = bismi_allah[0..];
+    try stdout.print("alhamdo li Allah bismi_allah_arr.len == {d}\n", .{bismi_allah_arr.?.len});
 
     try bw.flush(); // don't forget to flush!
 }
