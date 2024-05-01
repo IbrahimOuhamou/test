@@ -17,6 +17,7 @@ pub fn main() !void {
     for (bismi_allah_arr.?) |value| {
         try stdout.print("bismi_allah_arr[i] == '{d}'\n", .{value});
     }
+    std.debug.print("{}\n", .{bismi_allah_arr.?[0]});
 
     try bw.flush(); // don't forget to flush!
 }
