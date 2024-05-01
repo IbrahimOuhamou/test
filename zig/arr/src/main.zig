@@ -14,5 +14,9 @@ pub fn main() !void {
     bismi_allah_arr = bismi_allah[0..];
     try stdout.print("alhamdo li Allah bismi_allah_arr.len == {d}\n", .{bismi_allah_arr.?.len});
 
+    for (bismi_allah_arr.?) |value| {
+        try stdout.print("bismi_allah_arr[i] == '{d}'\n", .{value});
+    }
+
     try bw.flush(); // don't forget to flush!
 }

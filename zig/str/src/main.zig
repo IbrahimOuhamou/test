@@ -2,10 +2,6 @@
 //la ilaha illa Allah mohammed rassoul Allah
 const std = @import("std");
 
-const BismiAllah = struct {
-    name: ?[]u8,
-};
-
 pub fn main() !void {
     // stdout is for the actual output of your application, for example if you
     // are implementing gzip, then only the compressed bytes should be sent to
@@ -15,9 +11,10 @@ pub fn main() !void {
     const stdout = bw.writer();
     try stdout.print("la ilaha illa Allah mohammed rassoul Allah\n", .{});
 
-    const bismi_allah = BismiAllah{ .name="bismi_allah"};
-    try stdout.print("bismi_allah.name = '{s}'\n", bismi_allah.name);
+    const bismi_allah_literal = "بسم الله الرحمن الرحيم";
+    var bismi_allah = [_]u8{};
+    bismi_allah = bismi_allah_literal.*;
+    try stdout.print("bismi_allah = '{s}'\n", bismi_allah);
 
     try bw.flush(); // don't forget to flush!
 }
-
