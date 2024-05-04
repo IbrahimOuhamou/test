@@ -8,12 +8,17 @@ pub fn main() !void {
 
 test "ArrayList" {
     var bismi_allah = std.ArrayList(usize).init(std.testing.allocator);
+    defer bismi_allah.deinit();
     try bismi_allah.append(12);
     try bismi_allah.append(12);
     try bismi_allah.append(12);
     try bismi_allah.append(12);
     try bismi_allah.append(12);
-    std.debug.print("alhamdo li Allah : '{any}'", .{bismi_allah.items});
-    bismi_allah.deinit();
+
+    const BismiAllah = struct { id: usize };
+    var bismi_allah_list = std.ArrayList(BismiAllah).init(std.testing.allocator);
+    defer bismi_allah_list.deinit();
+    try bismi_allah_list.append(BismiAllah{.id=12});
+    std.debug.print("alhamdo li Allah : '{any}'", .{bismi_allah_list.items});
 }
 
