@@ -1,24 +1,19 @@
+//in the name of Allah
+//la ilaha illa Allah Mohammed Rassoul Allah
 const std = @import("std");
 
 pub fn main() !void {
-    // Prints to stderr (it's a shortcut based on `std.io.getStdErr()`)
-    std.debug.print("All your {s} are belong to us.\n", .{"codebase"});
-
-    // stdout is for the actual output of your application, for example if you
-    // are implementing gzip, then only the compressed bytes should be sent to
-    // stdout, not any debugging messages.
-    const stdout_file = std.io.getStdOut().writer();
-    var bw = std.io.bufferedWriter(stdout_file);
-    const stdout = bw.writer();
-
-    try stdout.print("Run `zig build test` to run the tests.\n", .{});
-
-    try bw.flush(); // don't forget to flush!
+    std.debug.print("in the name of Allah\n", .{});
 }
 
-test "simple test" {
-    var list = std.ArrayList(i32).init(std.testing.allocator);
-    defer list.deinit(); // try commenting this out and see if zig detects the memory leak!
-    try list.append(42);
-    try std.testing.expectEqual(@as(i32, 42), list.pop());
+test "ArrayList" {
+    var bismi_allah = std.ArrayList(usize).init(std.testing.allocator);
+    try bismi_allah.append(12);
+    try bismi_allah.append(12);
+    try bismi_allah.append(12);
+    try bismi_allah.append(12);
+    try bismi_allah.append(12);
+    std.debug.print("alhamdo li Allah : '{any}'", .{bismi_allah.items});
+    bismi_allah.deinit();
 }
+
