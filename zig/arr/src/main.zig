@@ -21,3 +21,30 @@ pub fn main() !void {
 
     try bw.flush(); // don't forget to flush!
 }
+
+test "bismi_allah: []?*BismiAllah" {
+    const BismiAllah = struct {
+        id: usize,
+    };
+
+    var bismi_allah1 = BismiAllah{ .id = 1};
+    var bismi_allah2 = BismiAllah{ .id = 2};
+    var bismi_allah3 = BismiAllah{ .id = 3};
+    var bismi_allah4 = BismiAllah{ .id = 4};
+
+    var bismi_allah_arr: ?[]?*BismiAllah = null;
+    bismi_allah_arr = try std.testing.allocator.alloc(?*BismiAllah, 4);
+    bismi_allah_arr.?[0] = &bismi_allah1;
+    bismi_allah_arr.?[1] = &bismi_allah2;
+    bismi_allah_arr.?[2] = &bismi_allah3;
+    bismi_allah_arr.?[3] = &bismi_allah4;
+    
+    for (bismi_allah_arr.?, 0..) |bismi_allah, i| {
+        bismi_allah.?.id = i;
+    }
+
+    std.debug.print("\n\nalhamdo li Allah {any}\n\n", .{@intFromPtr(bismi_allah_arr.?.ptr)});
+    std.testing.allocator.free(bismi_allah_arr.?);
+    //const result = std.testing.allocator.free(bismi_allah_arr.?.ptr);
+}
+
