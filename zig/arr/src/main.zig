@@ -1,6 +1,7 @@
 //بسم الله الرحمن الرحيم
 //la ilaha illa Allah mohammed rassoul Allah
 const std = @import("std");
+const expect = std.testing.expect;
 
 pub fn main() !void {
     const stdout_file = std.io.getStdOut().writer();
@@ -43,8 +44,17 @@ test "bismi_allah: []?*BismiAllah" {
         bismi_allah.?.id = i;
     }
 
-    std.debug.print("\n\nalhamdo li Allah {any}\n\n", .{@intFromPtr(bismi_allah_arr.?.ptr)});
     std.testing.allocator.free(bismi_allah_arr.?);
     //const result = std.testing.allocator.free(bismi_allah_arr.?.ptr);
+}
+
+test "bismi_allah: opt_arr" {
+    var bismi_allah1: usize = 1;
+    var bismi_allah2: usize = 2;
+    var bismi_allah3: usize = 3;
+    var bismi_allah4: usize = 4;
+    var bismi_allah_arr: ?[]const ?*usize = null;
+    bismi_allah_arr = &[_]?*usize{ &bismi_allah1, &bismi_allah2, &bismi_allah3, &bismi_allah4};
+    try expect(bismi_allah_arr.?[0] != null);
 }
 
