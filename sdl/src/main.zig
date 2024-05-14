@@ -38,9 +38,15 @@ pub fn main() !void {
             if (c.SDL_QUIT == event.type) {
                 running = false;
             } else if (c.SDL_KEYDOWN == event.type) {
-                bismi_allah_rect.w += 10;
-                if(c.SDLK_RIGHT == )
-                try stdout.print("alhamdo li Allah event: {any}\n", .{event.key.keysym.scancode});
+                if (c.SDLK_RIGHT == event.key.keysym.sym) {
+                    bismi_allah_rect.x += 5;
+                } else if (c.SDLK_LEFT == event.key.keysym.sym) {
+                    bismi_allah_rect.x -= 5;
+                } else if (c.SDLK_UP == event.key.keysym.sym) {
+                    bismi_allah_rect.y -= 5;
+                } else if (c.SDLK_DOWN == event.key.keysym.sym) {
+                    bismi_allah_rect.y += 5;
+                }
             }
         }
 
