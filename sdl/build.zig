@@ -1,3 +1,5 @@
+//بسم الله الرحمن الرحيم
+//la ilaha illa Allah Mohammed Rassoul Allah
 const std = @import("std");
 
 // Although this function looks imperative, note that its job is to
@@ -21,6 +23,7 @@ pub fn build(b: *std.Build) void {
         .target = target,
         .optimize = optimize,
     });
+    exe.linkLibC();
     exe.linkSystemLibrary("SDL2");
 
     // This declares intent for the executable to be installed into the
