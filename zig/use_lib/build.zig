@@ -17,8 +17,8 @@ pub fn build(b: *std.Build) void {
 
     //const lib = b.addStaticLibrary(.{
     //    .name = "use_lib",
-        // In this case the main source file is merely a path, however, in more
-        // complicated build scripts, this could be a generated file.
+    // In this case the main source file is merely a path, however, in more
+    // complicated build scripts, this could be a generated file.
     //    .root_source_file = b.path("src/root.zig"),
     //    .target = target,
     //    .optimize = optimize,
@@ -36,7 +36,7 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
 
-    const task_tree_lib_dep = b.dependency("task_tree", .{.optimize=optimize, .target=target});
+    const task_tree_lib_dep = b.dependency("task_tree", .{ .optimize = optimize, .target = target });
     const module = task_tree_lib_dep.module("task_tree");
     exe.root_module.addImport("task_tree", module);
 
