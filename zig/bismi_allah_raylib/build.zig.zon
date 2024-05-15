@@ -1,0 +1,35 @@
+.{
+    .name = "bismi_allah_raylib",
+    .version = "0.0.0",
+
+    //.minimum_zig_version = "0.12.0",
+
+    .dependencies = .{
+        .@"raylib-zig" = .{
+            //.url = "https://github.com/Not-Nik/raylib-zig/archive/4231842efd0847f41a1155d390fe342aea2db3c1.tar.gz",
+            //.hash = "1220653de650ac35803998bc1b87d5aa9d84414e5cc2fb78151c6562e8af791ba600",
+            .url = "https://github.com/Not-Nik/raylib-zig/archive/devel.tar.gz",
+            .hash = "122043ae5d7dc535006aca53271bf37b64fcbb66851a7982f5914fa6166747884f60",
+        },
+    },
+
+    // Specifies the set of files and directories that are included in this package.
+    // Only files and directories listed here are included in the `hash` that
+    // is computed for this package.
+    // Paths are relative to the build root. Use the empty string (`""`) to refer to
+    // the build root itself.
+    // A directory listed here means that all files within, recursively, are included.
+    .paths = .{
+        // This makes *all* files, recursively, included in this package. It is generally
+        // better to explicitly list the files and directories instead, to insure that
+        // fetching from tarballs, file system paths, and version control all result
+        // in the same contents hash.
+        "",
+        // For example...
+        //"build.zig",
+        //"build.zig.zon",
+        //"src",
+        //"LICENSE",
+        //"README.md",
+    },
+}

@@ -13,7 +13,7 @@ pub fn main() !void {
     try bw.flush(); // don't forget to flush!
 
     _ = c.SDL_Init(c.SDL_INIT_VIDEO);
-    const window = c.SDL_CreateWindow("la ilaha illa Allah", c.SDL_WINDOWPOS_CENTERED, c.SDL_WINDOWPOS_CENTERED, 1200, 800, c.SDL_WINDOW_SHOWN | c.SDL_WINDOW_RESIZABLE);
+    const window = c.SDL_CreateWindow("la ilaha illa Allah", c.SDL_WINDOWPOS_CENTERED, c.SDL_WINDOWPOS_CENTERED, 1200, 800, c.SDL_WINDOW_SHOWN | c.SDL_WINDOW_RESIZABLE | c.SDL_WINDOW_OPENGL);
     if (null == window) {
         c.SDL_LogError(0, "Error c.SDL_CreateWindow() %s\n", c.SDL_GetError());
         unreachable;
