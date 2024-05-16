@@ -22,8 +22,13 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
 
-    const raylib_dep = b.dependency("raylib-zig", .{ .target = target, .optimize = optimize, });
+    const raylib_dep = b.dependency("raylib-zig", .{
+        .target = target,
+        .optimize = optimize,
+    });
     const raylib = raylib_dep.module("raylib");
+    const raylib_math = raylib_dep.module("raylib-math");
+    exe.root_module.addImport("raylib-math", raylib_math);
     exe.root_module.addImport("raylib", raylib);
     const raylib_artifact = raylib_dep.artifact("raylib"); // raylib C library
 

@@ -1,36 +1,46 @@
 //بسم الله الرحمن الرحيم
 //la ilaha illa Allah Mohammed Rassoul Allah
+
 const std = @import("std");
 const rl = @import("raylib");
 
 pub fn main() anyerror!void {
     std.debug.print("بسم الله الرحمن الرحيم", .{});
-    // Initialization
-    //--------------------------------------------------------------------------------------
-    const screenWidth = 800;
-    const screenHeight = 450;
 
-    rl.initWindow(screenWidth, screenHeight, "raylib-zig [core] example - basic window");
-    defer rl.closeWindow(); // Close window and OpenGL context
+    rl.initWindow(800, 450, "بسم الله الرحمن الرحيم");
+    defer rl.closeWindow();
 
-    rl.setTargetFPS(60); // Set our game to run at 60 frames-per-second
-    //--------------------------------------------------------------------------------------
+    rl.setTargetFPS(60);
+    var bismi_allah_rec = rl.Rectangle{
+        .x = 10,
+        .y = 10,
+        .width = 10,
+        .height = 10,
+    };
+    var speed: f32 = 1;
 
-    // Main game loop
-    while (!rl.windowShouldClose()) { // Detect window close button or ESC key
-        // Update
-        //----------------------------------------------------------------------------------
-        // TODO: Update your variables here
-        //----------------------------------------------------------------------------------
+    while (!rl.windowShouldClose()) {
+        if (rl.isKeyDown(rl.KeyboardKey.key_right)) bismi_allah_rec.x += speed;
+        if (rl.isKeyDown(rl.KeyboardKey.key_left)) bismi_allah_rec.x -= speed;
+        if (rl.isKeyDown(rl.KeyboardKey.key_up)) bismi_allah_rec.y -= speed;
+        if (rl.isKeyDown(rl.KeyboardKey.key_down)) bismi_allah_rec.y += speed;
+        if (rl.isKeyDown(rl.KeyboardKey.key_left_shift)) {
+            speed = 5;
+        } else {
+            speed = 1;
+        }
+        if (rl.isKeyDown(rl.KeyboardKey.key_equal) or rl.isKeyDown(rl.KeyboardKey.key_kp_add)) {
+            bismi_allah_rec.width += 1;
+            bismi_allah_rec.height += 1;
+        } else if (rl.isKeyDown(rl.KeyboardKey.key_minus)) {
+            bismi_allah_rec.width -= 1;
+            bismi_allah_rec.height -= 1;
+        }
 
-        // Draw
-        //----------------------------------------------------------------------------------
         rl.beginDrawing();
         defer rl.endDrawing();
 
-        rl.clearBackground(rl.Color.white);
-
-        rl.drawText("Congrats! You created your first window!", 190, 200, 20, rl.Color.light_gray);
-        //----------------------------------------------------------------------------------
+        rl.clearBackground(rl.Color.ray_white);
+        rl.drawRectangleRec(bismi_allah_rec, rl.Color.gray);
     }
 }
