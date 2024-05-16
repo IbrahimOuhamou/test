@@ -32,8 +32,12 @@ pub fn build(b: *std.Build) void {
     exe.root_module.addImport("raylib", raylib);
     const raylib_artifact = raylib_dep.artifact("raylib"); // raylib C library
 
+    //exe.addCSourceFile(std.Build.Module.CSourceFile{ .file = std.Build.LazyPath.relative("raygui_imp.c"), .flags = &.{} });
+    //exe.addCSourceFiles(&[_][]const u8{.});
+    //exe.addCSourceFiles(std.Build.Module.AddCSourceFilesOptions{ .files = &.{"raygui_imp.c"} });
     exe.linkLibrary(raylib_artifact);
     exe.linkLibC();
+    //exe.installHeader(b.path("raygui.h"), "raygui.h");
 
     b.installArtifact(exe);
 

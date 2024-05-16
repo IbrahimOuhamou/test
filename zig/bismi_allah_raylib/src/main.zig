@@ -3,11 +3,15 @@
 
 const std = @import("std");
 const rl = @import("raylib");
+const c = @cImport({
+    @cDefine("RAYGUI_IMPLEMENTATION", "1");
+    @cInclude("raylib.h");
+});
 
 pub fn main() anyerror!void {
     std.debug.print("بسم الله الرحمن الرحيم", .{});
 
-    rl.initWindow(800, 450, "بسم الله الرحمن الرحيم");
+    rl.initWindow(900, 450, "بسم الله الرحمن الرحيم");
     defer rl.closeWindow();
 
     rl.setTargetFPS(60);
@@ -42,5 +46,6 @@ pub fn main() anyerror!void {
 
         rl.clearBackground(rl.Color.ray_white);
         rl.drawRectangleRec(bismi_allah_rec, rl.Color.gray);
+        rl.drawText("la ilaha illa Allah Mohammed Rassoul Allah", 10, 10, 40, rl.Color.black);
     }
 }
