@@ -1,3 +1,5 @@
+//بسم الله الرحمن الرحيم
+//la ilaha illa Allah Mohammed Rassoul Allah
 const std = @import("std");
 
 // Although this function looks imperative, note that its job is to
@@ -28,16 +30,22 @@ pub fn build(b: *std.Build) void {
     });
     const raylib = raylib_dep.module("raylib");
     const raylib_math = raylib_dep.module("raylib-math");
+    const raylib_gui = raylib_dep.module("raylib-gui");
     exe.root_module.addImport("raylib-math", raylib_math);
+    exe.root_module.addImport("raylib-gui", raylib_gui);
     exe.root_module.addImport("raylib", raylib);
     const raylib_artifact = raylib_dep.artifact("raylib"); // raylib C library
+
+    exe.addIncludePath(b.path("."));
+    exe.defineCMacro("RAYGUI_IMPLEMENTATION", null);
 
     //exe.addCSourceFile(std.Build.Module.CSourceFile{ .file = std.Build.LazyPath.relative("raygui_imp.c"), .flags = &.{} });
     //exe.addCSourceFiles(&[_][]const u8{.});
     //exe.addCSourceFiles(std.Build.Module.AddCSourceFilesOptions{ .files = &.{"raygui_imp.c"} });
+    //exe.installHeader(b.path("raygui.h"), "raygui.h");
+
     exe.linkLibrary(raylib_artifact);
     exe.linkLibC();
-    //exe.installHeader(b.path("raygui.h"), "raygui.h");
 
     b.installArtifact(exe);
 

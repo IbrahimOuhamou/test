@@ -6,10 +6,10 @@
 
     .dependencies = .{
         .@"raylib-zig" = .{
-            //.url = "https://github.com/Not-Nik/raylib-zig/archive/4231842efd0847f41a1155d390fe342aea2db3c1.tar.gz",
-            //.hash = "1220653de650ac35803998bc1b87d5aa9d84414e5cc2fb78151c6562e8af791ba600",
-            .url = "https://github.com/Not-Nik/raylib-zig/archive/devel.tar.gz",
-            .hash = "122043ae5d7dc535006aca53271bf37b64fcbb66851a7982f5914fa6166747884f60",
+            //.url = "https://github.com/Not-Nik/raylib-zig/archive/devel.tar.gz",
+            //.hash = "122043ae5d7dc535006aca53271bf37b64fcbb66851a7982f5914fa6166747884f60",
+            .url = "https://github.com/IbrahimOuhamou/raylib-zig/archive/devel.tar.gz",
+            .hash = "122002056dc85b107e18b4224d8436fc9b5b4b01e93e269db54041bdf47554aa93ef",
         },
     },
 

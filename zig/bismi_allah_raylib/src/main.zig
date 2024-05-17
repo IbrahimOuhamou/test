@@ -3,10 +3,7 @@
 
 const std = @import("std");
 const rl = @import("raylib");
-const c = @cImport({
-    @cDefine("RAYGUI_IMPLEMENTATION", "1");
-    @cInclude("raylib.h");
-});
+const rgui = @import("raylib-gui");
 
 pub fn main() anyerror!void {
     std.debug.print("بسم الله الرحمن الرحيم", .{});
@@ -43,6 +40,10 @@ pub fn main() anyerror!void {
 
         rl.beginDrawing();
         defer rl.endDrawing();
+
+        if (0 != rgui.GuiButton(.{ .x = 0, .y = 0, .width = 100, .height = 100 }, "bismi_allah")) {
+            std.debug.print("بسم الله الرحمن الرحيم\n", .{});
+        }
 
         rl.clearBackground(rl.Color.ray_white);
         rl.drawRectangleRec(bismi_allah_rec, rl.Color.gray);
