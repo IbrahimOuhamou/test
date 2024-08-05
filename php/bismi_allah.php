@@ -20,4 +20,13 @@ for($i=0, $y=2; $i < 12; $i++)
     echo "y == $y \n";
 }
 
+echo "=================================\n";
+function bismiAllahFunc(int $num): ?int {
+    if (0 < $num) return $num;
+    return null;
+}
+
+echo bismiAllahFunc(-12) ?? exit() . "\n";
+echo "alhamdo li Allah got here\n";
+
 ?>
