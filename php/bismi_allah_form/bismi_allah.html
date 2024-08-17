@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- بسم الله الرحمن الرحيم -->
+<!-- la ilaha illa Allah Mohammed Rassoul Allah -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>بسم الله الرحمن الرحيم</title>
+    </head>
+    <body>
+        <p>بسم الله الرحمن الرحيم</p>
+        <form action="bismi_allah.php" method="POST" id="bismi_allah_form">
+            <table id="bismi_allah_table">
+            </table>
+            <!-- <input type="text" name="data_array[0][time_intervals][]" value=""> -->
+            <!-- <input type="text" name="data_array[0][time_intervals][]" value=""> -->
+            <!-- <input type="text" name="data_array[0][time_intervals][]" value=""> -->
+            <!-- <input type="text" name="data_array[0][time_intervals][]" value=""> -->
+            <!-- <br/> -->
+            <!-- <input type="text" name="data_array[0][time_rows][0][name]" value=""> -->
+            <!-- <input type="text" name="data_array[0][time_rows][0][sessions][0][title]" value=""> -->
+            <!-- <input type="text" name="data_array[0][time_rows][0][sessions][0][text]" value=""> -->
+            <!-- <input type="text" name="data_array[0][time_rows][0][sessions][1][title]" value=""> -->
+            <!-- <input type="text" name="data_array[0][time_rows][0][sessions][1][text]" value=""> -->
+            <!-- <input type="text" name="data_array[0][time_rows][0][sessions][2][title]" value=""> -->
+            <!-- <input type="text" name="data_array[0][time_rows][0][sessions][2][text]" value=""> -->
+            <!-- <br/> -->
+            <!-- <input type="text" name="data_array[0][time_rows][1][sessions][0][title]" value=""> -->
+            <!-- <input type="text" name="data_array[0][time_rows][1][sessions][0][text]" value=""> -->
+            <!-- <input type="text" name="data_array[0][time_rows][1][sessions][1][title]" value=""> -->
+            <!-- <input type="text" name="data_array[0][time_rows][1][sessions][1][text]" value=""> -->
+            <!-- <input type="text" name="data_array[0][time_rows][1][sessions][2][title]" value=""> -->
+            <!-- <input type="text" name="data_array[0][time_rows][1][sessions][2][text]" value=""> -->
+            <!-- <br> -->
+            <!-- <input type="text" name="data_array[1][time_intervals][]" value=""> -->
+            <!-- <input type="text" name="data_array[1][time_intervals][]" value=""> -->
+            
+            <br/>
+            <button type="submit">bismi Allah submit</button>
+
+        </form>
+
+        <br/>
+        <button id="bismi_allah_new_time_rows">new data item</button>
+
+        <script>
+            const bismi_allah_form = document.getElementById("bismi_allah_form");
+            const bismi_allah_table = document.getElementById("bismi_allah_table");
+
+            document.getElementById("bismi_allah_new_time_rows").onclick = function() {
+                let time_row = document.createElement("tr");
+                bismi_allah_table.appendChild(time_row);
+
+                time_row.time_intervals = [];
+
+                let button_add_time_interval = document.createElement("button");
+                button_add_time_interval.onclick = function() {
+                    
+                }
+            }
+
+            function newDataItem() {
+            }
+
+        </script>
+    </body>
+</html>
