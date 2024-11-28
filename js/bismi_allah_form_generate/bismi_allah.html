@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- بسم الله الرحمن الرحيم -->
+<!-- la ilaha illa Allah Mohammed rassoul Allah -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        <link href="bismi_allah.css" rel="stylesheet">
+        <style>
+            input {
+                text-align: center;
+                border: none;
+                width: 99%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0);
+                font-family: inherit;
+                font-size: medium;
+            }
+
+            td, th {
+                border: solid;
+            }
+
+            td > button {
+                background: rgba(0, 0, 0, 0);
+                border: none;
+                padding-top: 100%;
+                padding-bottom: 100%;
+            }
+
+            th > input, input:nth-child(1) {
+                font-weight: bold;
+            } 
+
+            table {
+                empty-cells: hide;
+            }
+
+            form {
+                width: 100vw;
+            }
+        </style>
+    </head>
+    <body>
+        <p>بسم الله الرحمن الرحيم</p>
+
+        <table id="bismi_allah">
+        </table>
+
+        <button id="bismi_allah_new_intervals"> new intervals </button><br/>
+
+        <div id="bismi_allah_floating_menu" style="position: absolute; display: none;">
+            <p>بسم الله الرحمن الرحيم</p>
+            <button id="bismi_allah_menu_button_insert">new sessions</button> <br/>
+            <button id="bismi_allah_menu_button_delete">delete</button>
+        </div>
+
+        <script src="bismi_allah.js"></script>
+    </body>
+</html>
